@@ -5,6 +5,15 @@ const concat = require('gulp-concat');
 const uglify = require('gulp-uglify');
 const htmlmin = require('gulp-htmlmin');
 const gutil = require('gulp-util');
+const addsrc = require('gulp-add-src');
+const revReplace = require('gulp-rev-replace');
+const rev = require('gulp-rev');
+const collect = require('gulp-rev-collector');
+const wait = require('gulp-wait');
+const clean = require('del');
+
+var manifestFolder = 'dist/manifest';
+var manifestFile = gulp.src(manifestFolder + '/rev-manifest.json');
 
 gulp.task('sass', function () {
     return gulp.src('src/scss/**/*.scss')
@@ -13,7 +22,13 @@ gulp.task('sass', function () {
         }).on('error', sass.logError))
         .pipe(autoprefixer())
         .pipe(concat('app.css'))
-        .pipe(gulp.dest('dist/css'));
+        .pipe(gulp.dest('tmp/css'));
+});
+
+gulp.task('js', function() {
+    return gulp.src(['node_modules/jquery/dist/jquery.js', 'src/js/**/*.js'])
+    .pipe(concat('app.js').on('error', gutil.log))
+    .pipe(gulp.dest('tmp/js'))
 });
 
 gulp.task('fonts', function() {
@@ -21,26 +36,47 @@ gulp.task('fonts', function() {
     .pipe(gulp.dest('dist/fonts'))
 });
 
-gulp.task('js', function() {
-    return gulp.src(['node_modules/jquery/dist/jquery.js', 'src/js/**/*.js'])
-    .pipe(concat('app.js').on('error', gutil.log))
-    // .pipe(uglify())
-    .pipe(gulp.dest('dist/js'))
+gulp.task('version', ["sass", "js"], function() {
+    return gulp.src(['tmp/**/*.css', 'tmp/**/*.js'])
+    .pipe(rev())
+    .pipe(gulp.dest('dist/'))
+    .pipe(rev.manifest())
+    .pipe(gulp.dest(manifestFolder));
 });
 
 gulp.task('html', function() {
     return gulp.src('src/*.html')
-        .pipe(htmlmin({
-            collapseWhitespace: true
-        }))
-        .pipe(gulp.dest('dist'));
-})
+        .pipe(gulp.dest('tmp'));
+});
 
-gulp.task('build', ['sass', 'js', 'fonts', 'html']);
+gulp.task('collect', function() {
+    return gulp.src([manifestFolder + '/*.json', 'tmp/*.html'])
+    .pipe(collect({
+        replaceReved: true
+    }))
+    .pipe(htmlmin({
+        collapseWhitespace: true
+    }))
+    .pipe(gulp.dest('dist'));
+});
+
+gulp.task('cleanEnter', function() {
+    return clean([
+        'dist'
+    ]);
+});
+
+gulp.task('cleanExit', function() {
+    return clean([
+        'tmp'
+    ]);
+});
+
+gulp.task('build', ['html', 'version', 'fonts', 'collect']);
 
 gulp.task('watch', function(){
-    gulp.watch('src/scss/*.scss', ['sass'])
-    gulp.watch('src/*.html', ['html'])
+    gulp.watch('src/scss/**/*.scss', ['version, html, collect'])
+    gulp.watch('src/*.html', ['html, collect'])
     gulp.watch('src/fonts/*.*', ['fonts'])
-    gulp.watch('src/js/*.js', ['js'])
-})
+    gulp.watch('src/js/**/*.js', ['version, html, collect'])
+});
