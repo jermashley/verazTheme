@@ -1,0 +1,37 @@
+// Basic Color
+$red: rgba(236, 72, 72, 1);
+$green: rgba(66, 228, 80, 1);
+$blue: rgba(26, 117, 186, 1);
+$yellow: rgba(236, 229, 72, 1);
+$cyan: rgba(72, 236, 236, 1);
+$magenta: rgba(229, 72, 236, 1);
+$orange: rgba(236, 143, 72, 1);
+$pink: rgba(236, 72, 129, 1);
+$brown: rgba(161, 97, 56, 1);
+$terminal-green: rgba(51, 255, 102, 1);
+
+
+// Greyscale
+$grey-100: hsla(0,0,100,1);
+$grey-90: hsla(0,0,90,1);
+$grey-80: hsla(0,0,80,1);
+$grey-70: hsla(0,0,70,1);
+$grey-60: hsla(0,0,60,1);
+$grey-50: hsla(0,0,50,1);
+$grey-40: hsla(0,0,40,1);
+$grey-30: hsla(0,0,30,1);
+$grey-20: hsla(0,0,20,1);
+$grey-10: hsla(0,0,10,1);
+$grey-0: hsla(0,0,0,1);
+
+// States
+$success: $green;
+$info: $blue;
+$info-alt: $cyan;
+$warning: $yellow;
+$danger: $orange;
+$critical: $red;
+
+// Branding
+$pipeline-blue: $blue;
+$text-primary: $grey-80;
