@@ -1,16 +1,17 @@
 // Google Fonts
 $font-muli: 'Muli', sans-serif;
 
-html, body {
+body {
     width: 100%;
     height: 100vh;
     margin: 0;
     padding: 0;
+    overflow: hidden;
     font-family: $font-muli;
     * {
         box-sizing: border-box;
     }
-    div, nav {
-        border: 1px solid mix($grey-90, $grey-100);
-    }
+    // div, nav {
+    //     border: 1px solid mix($grey-90, $grey-100);
+    // }
 }
