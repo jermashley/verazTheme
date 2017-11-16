@@ -4,6 +4,7 @@ const autoprefixer = require('gulp-autoprefixer');
 const concat = require('gulp-concat');
 const uglify = require('gulp-uglify');
 const htmlmin = require('gulp-htmlmin');
+const watch = require('gulp-watch')
 const gutil = require('gulp-util');
 const addsrc = require('gulp-add-src');
 const revReplace = require('gulp-rev-replace');
@@ -11,6 +12,8 @@ const rev = require('gulp-rev');
 const collect = require('gulp-rev-collector');
 const wait = require('gulp-wait');
 const clean = require('del');
+const seq = require('gulp-sequence');
+const watchSeq = require('gulp-watch-sequence');
 
 var manifestFolder = 'dist/manifest';
 var manifestFile = gulp.src(manifestFolder + '/rev-manifest.json');
@@ -62,8 +65,15 @@ gulp.task('collect', function() {
 
 gulp.task('cleanEnter', function() {
     return clean([
-        'dist'
+        'dist/**/*'
     ]);
+});
+
+gulp.task('cleanAssets', function() {
+    return clean ([
+        'dist/css/*.css',
+        'dist/js/*.js'
+    ])
 });
 
 gulp.task('cleanExit', function() {
@@ -72,11 +82,42 @@ gulp.task('cleanExit', function() {
     ]);
 });
 
-gulp.task('build', ['html', 'version', 'fonts', 'collect']);
-
-gulp.task('watch', function(){
-    gulp.watch('src/scss/**/*.scss', ['version, html, collect'])
-    gulp.watch('src/*.html', ['html, collect'])
-    gulp.watch('src/fonts/*.*', ['fonts'])
-    gulp.watch('src/js/**/*.js', ['version, html, collect'])
+gulp.task('build', function(callback) {
+    seq('cleanEnter', 'fonts', 'html', 'version', 'collect', 'cleanExit')(callback);
 });
+
+gulp.task('quick', function(callback) {
+    seq('cleanAssets', 'html', 'version', 'collect')(callback)
+});
+
+gulp.task('watch', function() {
+    gulp.watch(['src/scss/**/*.scss', 'src/js/**/*.js', 'src/*.html'], ['quick']);
+})
+
+// gulp.task('watch', function(){
+//     gulp.watch('src/scss/**/*.scss', ['version, html, collect'])
+//     gulp.watch('src/js/**/*.js', ['version, html, collect'])
+//     gulp.watch('src/*.html', ['html, collect'])
+//     gulp.watch('src/fonts/*.*', ['fonts'])
+// });
+
+// gulp.task('watch', function () {
+
+//     var queue = watchSeq(300);
+   
+//     watch('src/scss/**/*.scss', {
+//       name      : 'SCSS',
+//       emitOnGlob: false
+//     }, queue.getHandler('version, html, collect'));
+   
+//     watch('src/*.html', {
+//       name      : 'HTML',
+//       emitOnGlob: false
+//     }, queue.getHandler('html, collect'));
+
+//     watch('src/js/**/*.js', {
+//         name      : 'JS',
+//         emitOnGlob: false
+//       }, queue.getHandler('version, html, collect'));
+  
+//   });
