@@ -83,7 +83,18 @@ window.mobileQuote = function() {
 
 }
 
+window.toggleLayoutTheme = function() {
+
+    console.log('You changed the layout theme!');
+
+    $('.logo').click(function() {
+        $('#app').toggleClass('largeCompanyCardLayout');
+    });
+
+}
+
 toggleNav();
 toggleNavList();
 toggleNavGroup();
 mobileQuote();
+toggleLayoutTheme();
