@@ -29,7 +29,7 @@ gulp.task('sass', function () {
 });
 
 gulp.task('js', function() {
-    return gulp.src(['node_modules/jquery/dist/jquery.js', 'src/js/**/*.js'])
+    return gulp.src(['node_modules/jquery/dist/jquery.js', 'src/js/fontawesome-core/*.js', 'src/js/fontawesome/*.js', 'src/js/jquery-ui/*.js', 'src/js/app.js'])
     .pipe(concat('app.js').on('error', gutil.log))
     .pipe(gulp.dest('tmp/js'))
 });
