@@ -11,6 +11,9 @@ $transition-1000: 1000ms ease;
 $shadow-static: drop-shadow(0 .125rem .0625rem $grey-80);
 $shadow-hover: drop-shadow(0 .35rem .5rem $grey-80);
 
+$shadow-input: drop-shadow(0 .125rem .0625rem $grey-90);
+$shadow-focus: drop-shadow(0 .35rem .3rem mix($grey-80, $grey-90));
+
 $shadow-plain: drop-shadow(0 .125rem .3rem $grey-90);
 
 
@@ -29,4 +32,9 @@ $border-radius: .5rem;
     100% {
         transform: translateX(0px);
     }
+}
+
+.rotate-180 {
+    transition: $transition-350;
+    transform: rotate(180deg);
 }

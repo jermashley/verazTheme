@@ -6,12 +6,10 @@ body {
     height: 100vh;
     margin: 0;
     padding: 0;
-    overflow: hidden;
+    overflow-y: hidden;
+    overflow-x: hidden;
     font-family: $font-muli;
     * {
         box-sizing: border-box;
     }
-    // div, nav {
-    //     border: 1px solid mix($grey-90, $grey-100);
-    // }
 }
