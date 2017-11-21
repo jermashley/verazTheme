@@ -33176,6 +33176,52 @@ $(document).ready(function() {
     console.log('Eh?');
 });
 
+window.toggleUserActions = function() {
+
+    $(document).ready(function() {
+        console.log('Ready to toggle the user actions menu.');
+    });
+
+    $('.userToggle').click(function(e) {
+
+        e.stopPropagation();
+        
+        $('.userInfo').toggleClass('expanded', 250);
+
+        $('.userActions').toggleClass('expanded', 250);
+
+        $(document).keyup(function(e){
+            
+            if(e.keyCode === 27)
+
+                $('.userInfo').toggleClass('expanded', 250);
+            
+                $('.userActions').toggleClass('expanded', 250);
+
+        });
+
+    });
+
+    $(document).click(function() {
+
+        if($('.userInfo').hasClass('expanded') || $('.userActions').hasClass('expanded')) {
+
+            $('.userInfo').toggleClass('expanded', 250);
+            
+            $('.userActions').toggleClass('expanded', 250);
+
+        }
+        
+    });
+
+    $('.user--button').click(function() {
+
+        console.log('You clicked on a user action button.');
+
+    });
+
+}
+
 window.toggleNav = function() {
 
     $(document).ready(function() {
@@ -33209,6 +33255,14 @@ window.toggleNavList = function() {
         }, 500, 'easeOutCubic');
 
         $('#' + anchorId).find('.nav--listGroupItems').toggleClass('items-expanded', 250);
+
+        $(document).keyup(function(e){
+            
+            if(e.keyCode === 27)
+
+            $('.nav--list').toggleClass('list--expanded');
+
+        });
 
         console.log('You clicked on #' + anchorId);
         
@@ -33257,7 +33311,32 @@ window.mobileQuote = function() {
 
 }
 
+window.toggleSearch = function() {
+
+    $('.search--button').click(function() {
+        $(this).closest('.search').find('.search--full').toggleClass('expanded');
+    });
+
+    $('.search--fullToggle').click(function() {
+        $(this).closest('.search--full').toggleClass('expanded');
+    });
+
+}
+
+window.toggleLayoutTheme = function() {
+
+    console.log('You changed the layout theme!');
+
+    $('.logo').click(function() {
+        $('#app').toggleClass('largeCompanyCardLayout');
+    });
+
+}
+
 toggleNav();
 toggleNavList();
 toggleNavGroup();
 mobileQuote();
+toggleLayoutTheme();
+toggleUserActions();
+toggleSearch();
