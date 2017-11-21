@@ -100,12 +100,102 @@ $header-height: 12rem;
             border: none;
         }
         &--full {
-            display: none;
-        }            
+            position: absolute;
+            z-index: 500;
+            top: 7rem;
+            left: 0;
+            width: calc(100% - 5rem);
+            height: 5rem;
+            margin: 0;
+            padding: 0 1rem;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            background-color: $white;
+            filter: none;
+            transform: scaleY(0);
+            transform-origin: top;
+            transition: $transition-500;
+            &:focus-within {
+                filter: none;
+                transition: $transition-250;
+            }
+            &.expanded {
+                transition: $transition-250;
+                transform: scaleY(1);
+            }
+            &Toggle {
+                position: absolute;
+                top: 0;
+                right: -5rem;
+                width: 5rem;
+                height: 5rem;
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+                align-items: center;
+                background-color: $white;
+            }
+            .filter {
+                width: fit-content;
+                height: 3rem;
+                margin: 0;
+                padding: 0 3rem;
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+                align-items: center;
+                font-size: .75rem;
+                font-weight: 700;
+                text-transform: uppercase;
+                color: mix($grey-70, $grey-80);
+                white-space: nowrap;
+                background-color: $white;
+                border: 0.0625rem solid $grey-80;
+                border-right: none;
+                border-radius: 3rem 0 0 3rem;
+                overflow: hidden;
+            }
+            input {
+                width: 100%;
+                height: 3rem;
+                margin: 0;
+                padding: 0 1.5rem;
+                display: flex;
+                flex-direction: row;
+                justify-content: flex-start;
+                align-items: center;
+                font-family: 'Muli';
+                font-size: 1rem;
+                font-weight: 400;
+                text-transform: capitalize;
+                color: $grey-60;
+                background-color: mix($grey-90, $grey-100, 35%);
+                -webkit-appearance: none;
+                appearance: none;
+                outline: none;
+                border: 0.0625rem solid $grey-80;
+                border-radius: 0 3rem 3rem 0;
+                overflow: hidden;
+                transition: $transition-350;
+                &::-webkit-input-placeholder {
+                    font-family: 'Muli';
+                    font-size: 1rem;
+                    font-weight: 300;
+                    text-transform: capitalize;
+                    color: $grey-80;
+                }
+                &:focus {
+                    background-color: $white;
+                    transition: $transition-350;
+                }
+            }
+        }
     }
     .user {
         grid-area: user;
-        position: static;
+        position: relative;
         width: 100%;
         height: 100%;
         margin: 0;
@@ -115,8 +205,42 @@ $header-height: 12rem;
         flex-wrap: nowrap;
         justify-content: center;
         align-items: center;
+        .userToggle {
+            &:hover {
+                cursor: pointer;
+            }
+        }
         &Info {
-            display: none;
+            position: absolute;
+            z-index: 1500;
+            top: 100%;
+            right: 0;
+            width: 50vw;
+            height: 5rem;
+            margin: 0;
+            padding: .75rem 1.5rem;
+            background-color: $pipeline-blue;
+            color: $white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-end;
+            transform: scaleY(0);
+            transform-origin: bottom;
+            transition: $transition-250;
+            &.expanded {
+                transform: scaleY(1);
+                transition: $transition-250;
+            }
+            &--name {
+                font-size: 1.15rem;
+                font-weight: 400;
+            }
+            &--type {
+                font-size: .95rem;
+                font-weight: 700;
+                text-transform: uppercase;
+            }
         }
         .avatar {
             width: 4rem;
@@ -131,6 +255,95 @@ $header-height: 12rem;
             background-color: $grey-80;
             color: $grey-50;
             font-size: 2rem;
+        }
+        .userActions {
+            position: absolute;
+            z-index: 1500;
+            top: calc(100% + 5rem);
+            right: 0;
+            width: 50vw;
+            margin: 0;
+            padding: 0;
+            transform: scaleY(0);
+            transform-origin: top;
+            transition: $transition-250;
+            &.expanded {
+                transform: scaleY(1);
+                transition: $transition-250;
+            }
+        }
+        &--buttonList {
+            width: 100%;
+            height: auto;
+            color: $white;
+        }
+        &--button {
+            width: 100%;
+            height: 4rem;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            background-color: $pipeline-blue;
+            transition: $transition-250;
+            &:hover {
+                background-color: mix($grey-10, $pipeline-blue);
+                cursor: pointer;
+                transition: $transition-500;
+                svg {
+                    animation-name: rightArrowBounce;
+                    animation-duration: 300ms;
+                    animation-delay: 100ms;
+                    animation-iteration-count: 2;
+                }
+            }
+            &Label {
+                position: relative;
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: .5rem 1.5rem;
+                display: flex;
+                flex-direction: row;
+                justify-content: flex-start;
+                align-items: center;
+                &::after {
+                    content: ' ';
+                    position: absolute;
+                    top: 0;
+                    right: 0;
+                    bottom: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    background-color: mix($grey-60, $grey-70);
+                    mix-blend-mode: soft-light;
+                }
+            }
+            &Icon {
+                position: relative;
+                width: 4rem;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+                align-items: center;
+                &::after {
+                    content: ' ';
+                    position: absolute;
+                    top: 0;
+                    right: 0;
+                    bottom: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    background-color: mix($grey-80, $grey-90);
+                    mix-blend-mode: soft-light;
+                }
+            }
         }
     }
     .dashboardQuote {
@@ -218,20 +431,12 @@ $header-height: 12rem;
     }
     nav {
         grid-area: nav;
+        height: 100%;
         overflow-y: scroll;
-        &::-webkit-scrollbar-track {
-            -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
-            border-radius: 1rem;
-            background-color: #F5F5F5;
-        }
+        -ms-overflow-style: -ms-autohiding-scrollbar;
         &::-webkit-scrollbar {
-            width: 1rem;
-            background-color: #F5F5F5;
-        }
-        &::-webkit-scrollbar-thumb {
-            border-radius: 1rem;
-            -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
-            background-color: #555;
+            width: 0px;
+            background-color: transparent   !important;
         }
         .nav--toggle {
             width: 100%;
@@ -256,8 +461,8 @@ $header-height: 12rem;
             overflow-x: hidden;
             display: flex;
             flex-direction: column;
-            justify-content: flex-start;
-            align-items: flex-start;
+            justify-content: space-between;
+            align-items: center;
             background-color: $pipeline-blue;
             font-size: 1.25rem;
             font-weight: 700;
@@ -453,6 +658,23 @@ $header-height: 12rem;
                 }
             }
         }
+        footer {
+            width: 100%;
+            height: fit-content;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            align-items: flex-start;
+            margin: 5rem 0 0;
+            padding: 1rem 1.5rem;
+            font-size: .75rem;
+            font-weight: 400;
+            text-transform: none;
+            span {
+                margin: .25rem 0;
+                padding: 0;
+            }
+        }
     }
     #mainContent {
         grid-area: mainContent;
@@ -496,6 +718,14 @@ $header-height: 12rem;
                 right: 0;
             }
         }
+        nav {
+            .nav {
+                top: 7rem;
+                .nav--list {
+                    height: calc(100vh - 7rem);
+                }
+            }
+        }
     }
 }
 
@@ -511,7 +741,7 @@ $header-height: 12rem;
     }
 }
 
-@media screen and (min-width: 1600px) {
+@media screen and (min-width: 1200px) {
     #app {
         grid-template-columns: 20rem 1fr 15rem;
         grid-template-rows: 5rem 10rem 1fr;
@@ -579,19 +809,20 @@ $header-height: 12rem;
                 display: none;
             }
             &--full {
+                position: static;
                 width: 100%;
-                height: 100%;
-                margin: 0;
+                height: auto;
                 padding: 0 5rem;
-                display: flex;
-                flex-direction: row;
-                justify-content: center;
-                align-items: center;
+                background-color: transparent;
                 filter: $shadow-input;
+                transform: scaleY(1);
                 transition: $transition-500;
                 &:focus-within {
                     filter: $shadow-focus;
                     transition: $transition-250;
+                }
+                &Toggle {
+                    display: none;
                 }
                 .filter {
                     width: fit-content;
@@ -645,23 +876,20 @@ $header-height: 12rem;
         }
         .user {
             grid-area: user;
-            position: relative;
             justify-content: flex-end;
             &Info {
+                position: static;
                 width: auto;
                 height: 100%;
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
-                align-items: flex-end;
+                padding: 0;
+                background-color: transparent;
+                color: $text-primary;
+                transform: scaleY(1);
                 &--name {
                     font-size: .85rem;
-                    font-weight: 400;
                 }
                 &--type {
                     font-size: .7rem;
-                    font-weight: 700;
-                    text-transform: uppercase;
                 }
             }
             .avatar {
@@ -670,6 +898,14 @@ $header-height: 12rem;
                 margin: 0 .5rem 0 1rem;
                 font-size: 1.5rem;
             }
+            .userActions {
+                top: 100%;
+                width: 100%;
+                &.expanded {
+                    transform: scaleY(1);
+                    transition: $transition-250;
+                }
+            }    
         }
         .dashboardQuote {
             flex-direction: column;
