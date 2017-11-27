@@ -538,7 +538,7 @@
             }
             &--button {
                 width: 100%;
-                height: 4rem;
+                height: 5rem;
                 margin: 0;
                 padding: 0;
                 display: flex;
@@ -572,7 +572,7 @@
                 }
                 &Icon {
                     position: relative;
-                    width: 4rem;
+                    width: 5.75rem;
                     height: 100%;
                     margin: 0;
                     padding: 0;
@@ -1002,6 +1002,12 @@
                 position: static;
                 height: 100%;
                 font-size: .85rem; // Changed
+                &--button {
+                    height: 4rem;
+                    &Icon {
+                        width: 4rem;
+                    }
+                }
                 .nav--list {
                     top: 5rem; // Added
                     left: 100%; // Added
