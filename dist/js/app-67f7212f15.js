@@ -33243,6 +33243,8 @@ window.toggleNav = function() {
 
         $('.nav--list').removeClass('list--expanded');
 
+        $('.nav--button').removeClass('activeMenu');
+
     });
 
 }
@@ -33266,7 +33268,7 @@ window.toggleNavList = function() {
         $('.nav--button').removeClass('activeMenu');
 
         // Add active nav button style.
-        $('.nav--button[data-link="' + menuId + '"').addClass('activeMenu');
+        $('.nav--button[data-link="' + menuId + '"]').addClass('activeMenu');
 
         // Toggle fly-out menu associated with data-link Id stored.
         $('#' + menuId).toggleClass('list--expanded');
@@ -33282,7 +33284,7 @@ window.toggleNavList = function() {
 
             $('#' + menuId).removeClass('list--expanded');
 
-            $('.nav--button[data-link="' + menuId + '"').removeClass('activeMenu');
+            $('.nav--button[data-link="' + menuId + '"]').removeClass('activeMenu');
 
         });
 
@@ -33291,7 +33293,7 @@ window.toggleNavList = function() {
 
             $('#' + menuId).removeClass('list--expanded');
 
-            $('.nav--button[data-link="' + menuId + '"').removeClass('activeMenu');
+            $('.nav--button[data-link="' + menuId + '"]').removeClass('activeMenu');
         });
         
     });
