@@ -1,103 +1,103 @@
 // Font Families
-// @import url('https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i');
+@import url('https://fonts.googleapis.com/css?family=Muli:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i');
 
 
 
 // Muli Font-Family
-@font-face {
-    font-family: 'Muli';
-    src: local('Muli ExtraLight'), local('Muli-ExtraLight'), url('/fonts/Muli-ExtraLight.ttf') format('truetype');
-    font-weight: 200;
-    font-style: normal;
-}
+// @font-face {
+//     font-family: 'Muli';
+//     src: local('Muli ExtraLight'), local('Muli-ExtraLight'), url('/fonts/Muli-ExtraLight.ttf') format('truetype');
+//     font-weight: 200;
+//     font-style: normal;
+// }
 
-@font-face {
-    font-family: 'Muli';
-    src: local('Muli ExtraLight Italic'), local('Muli-ExtraLightItalic'), url('/fonts/Muli-ExtraLightItalic.ttf') format('truetype');
-    font-weight: 200;
-    font-style: italic;
-}
+// @font-face {
+//     font-family: 'Muli';
+//     src: local('Muli ExtraLight Italic'), local('Muli-ExtraLightItalic'), url('/fonts/Muli-ExtraLightItalic.ttf') format('truetype');
+//     font-weight: 200;
+//     font-style: italic;
+// }
 
-@font-face {
-    font-family: 'Muli';
-    src: local('Muli Light'), local('Muli-Light'), url('/fonts/Muli-Light.ttf') format('truetype');
-    font-weight: 300;
-    font-style: normal;
-}
+// @font-face {
+//     font-family: 'Muli';
+//     src: local('Muli Light'), local('Muli-Light'), url('/fonts/Muli-Light.ttf') format('truetype');
+//     font-weight: 300;
+//     font-style: normal;
+// }
 
-@font-face {
-    font-family: 'Muli';
-    src: local('Muli Light Italic'), local('Muli-LightItalic'), url('/fonts/Muli-LightItalic.ttf') format('truetype');
-    font-weight: 300;
-    font-style: italic;
-}
+// @font-face {
+//     font-family: 'Muli';
+//     src: local('Muli Light Italic'), local('Muli-LightItalic'), url('/fonts/Muli-LightItalic.ttf') format('truetype');
+//     font-weight: 300;
+//     font-style: italic;
+// }
 
-@font-face {
-    font-family: 'Muli';
-    src: local('Muli Regular'), local('Muli-Regular'), url('/fonts/Muli-Regular.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
-}
+// @font-face {
+//     font-family: 'Muli';
+//     src: local('Muli Regular'), local('Muli-Regular'), url('/fonts/Muli-Regular.ttf') format('truetype');
+//     font-weight: normal;
+//     font-style: normal;
+// }
 
-@font-face {
-    font-family: 'Muli';
-    src: local('Muli Italic'), local('Muli-Italic'), url('/fonts/Muli-Italic.ttf') format('truetype');
-    font-weight: normal;
-    font-style: italic;
-}
+// @font-face {
+//     font-family: 'Muli';
+//     src: local('Muli Italic'), local('Muli-Italic'), url('/fonts/Muli-Italic.ttf') format('truetype');
+//     font-weight: normal;
+//     font-style: italic;
+// }
 
-@font-face {
-    font-family: 'Muli';
-    src: local('Muli SemiBold'), local('Muli-SemiBold'), url('/fonts/Muli-SemiBold.ttf') format('truetype');
-    font-weight: 600;
-    font-style: normal;
-}
+// @font-face {
+//     font-family: 'Muli';
+//     src: local('Muli SemiBold'), local('Muli-SemiBold'), url('/fonts/Muli-SemiBold.ttf') format('truetype');
+//     font-weight: 600;
+//     font-style: normal;
+// }
 
-@font-face {
-    font-family: 'Muli';
-    src: local('Muli SemiBold Italic'), local('Muli-SemiBoldItalic'), url('/fonts/Muli-SemiBoldItalic.ttf') format('truetype');
-    font-weight: 600;
-    font-style: italic;
-}
+// @font-face {
+//     font-family: 'Muli';
+//     src: local('Muli SemiBold Italic'), local('Muli-SemiBoldItalic'), url('/fonts/Muli-SemiBoldItalic.ttf') format('truetype');
+//     font-weight: 600;
+//     font-style: italic;
+// }
 
-@font-face {
-    font-family: 'Muli';
-    src: local('Muli Bold'), local('Muli-Bold'), url('/fonts/Muli-Bold.ttf') format('truetype');
-    font-weight: 700;
-    font-style: normal;
-}
+// @font-face {
+//     font-family: 'Muli';
+//     src: local('Muli Bold'), local('Muli-Bold'), url('/fonts/Muli-Bold.ttf') format('truetype');
+//     font-weight: 700;
+//     font-style: normal;
+// }
 
-@font-face {
-    font-family: 'Muli';
-    src: local('Muli Bold Italic'), local('Muli-BoldItalic'), url('/fonts/Muli-BoldItalic.ttf') format('truetype');
-    font-weight: 700;
-    font-style: italic;
-}
+// @font-face {
+//     font-family: 'Muli';
+//     src: local('Muli Bold Italic'), local('Muli-BoldItalic'), url('/fonts/Muli-BoldItalic.ttf') format('truetype');
+//     font-weight: 700;
+//     font-style: italic;
+// }
 
-@font-face {
-    font-family: 'Muli';
-    src: local('Muli ExtraBold'), local('Muli-ExtraBold'), url('/fonts/Muli-ExtraBold.ttf') format('truetype');
-    font-weight: 800;
-    font-style: normal;
-}
+// @font-face {
+//     font-family: 'Muli';
+//     src: local('Muli ExtraBold'), local('Muli-ExtraBold'), url('/fonts/Muli-ExtraBold.ttf') format('truetype');
+//     font-weight: 800;
+//     font-style: normal;
+// }
 
-@font-face {
-    font-family: 'Muli';
-    src: local('Muli ExtraBold Italic'), local('Muli-ExtraBoldItalic'), url('/fonts/Muli-ExtraBoldItalic.ttf') format('truetype');
-    font-weight: 800;
-    font-style: italic;
-}
+// @font-face {
+//     font-family: 'Muli';
+//     src: local('Muli ExtraBold Italic'), local('Muli-ExtraBoldItalic'), url('/fonts/Muli-ExtraBoldItalic.ttf') format('truetype');
+//     font-weight: 800;
+//     font-style: italic;
+// }
 
-@font-face {
-    font-family: 'Muli';
-    src: local('Muli Black'), local('Muli-Black'), url('/fonts/Muli-Black.ttf') format('truetype');
-    font-weight: 900;
-    font-style: normal;
-}
+// @font-face {
+//     font-family: 'Muli';
+//     src: local('Muli Black'), local('Muli-Black'), url('/fonts/Muli-Black.ttf') format('truetype');
+//     font-weight: 900;
+//     font-style: normal;
+// }
 
-@font-face {
-    font-family: 'Muli';
-    src: local('Muli Black Italic'), local('Muli-BlackItalic'), url('/fonts/Muli-BlackItalic.ttf') format('truetype');
-    font-weight: 900;
-    font-style: italic;
-}
+// @font-face {
+//     font-family: 'Muli';
+//     src: local('Muli Black Italic'), local('Muli-BlackItalic'), url('/fonts/Muli-BlackItalic.ttf') format('truetype');
+//     font-weight: 900;
+//     font-style: italic;
+// }
