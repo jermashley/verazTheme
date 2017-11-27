@@ -1076,6 +1076,9 @@
             width: 1rem;
             margin: 0 .75rem 0 0 ;
         }
+        .closeQuote {
+            margin: 0;
+        }
         &:hover {
             background-color: $pipeline-blue;
             transition: $transition-250;
