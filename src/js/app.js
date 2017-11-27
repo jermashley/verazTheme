@@ -2,12 +2,21 @@ $(document).ready(function() {
     console.log('Eh?');
 });
 
+
+// Toggle the user menu for password management and logging out.
 window.toggleUserActions = function() {
 
     $(document).ready(function() {
         console.log('Ready to toggle the user actions menu.');
     });
 
+    $('.user--button').click(function() {
+        
+        console.log('You clicked on a user action button.');
+        
+    });
+        
+    // On-click function.
     $('.userToggle').click(function(e) {
 
         e.stopPropagation();
@@ -16,52 +25,55 @@ window.toggleUserActions = function() {
 
         $('.userActions').toggleClass('expanded', 250);
 
+        // Allow esc key to close the user menu.
         $(document).keyup(function(e){
             
             if(e.keyCode === 27)
 
-                $('.userInfo').toggleClass('expanded', 250);
+                $('.userInfo').removeClass('expanded', 250);
             
-                $('.userActions').toggleClass('expanded', 250);
+                $('.userActions').removeClass('expanded', 250);
 
         });
 
     });
 
-    $(document).click(function() {
+    // Clicking anywhere outside the user menu closes it.
+    $(document).click(function(e) {
 
-        if($('.userInfo').hasClass('expanded') || $('.userActions').hasClass('expanded')) {
+        if(!$(e.target).closest('.user').length) {
 
-            $('.userInfo').toggleClass('expanded', 250);
+            $('.userInfo').removeClass('expanded', 250);
             
-            $('.userActions').toggleClass('expanded', 250);
+            $('.userActions').removeClass('expanded', 250);
 
         }
         
     });
 
-    $('.user--button').click(function() {
-
-        console.log('You clicked on a user action button.');
-
-    });
-
 }
 
+// Toggle main navigation from hamburger menu button.
 window.toggleNav = function() {
 
     $(document).ready(function() {
         console.log('The navigation hamburger is ready to consume. No ketchup needed.');
     });
 
+    // Click the hamburger button on mobile to get the drop-down menu.
     $('.nav--toggle').click(function() {
+
         $('#mainContent').toggleClass('lockScroll');
+
         $('.nav').toggleClass('nav--expanded');
+
         $('.nav--list').removeClass('list--expanded');
+
     });
 
 }
 
+// Toggle a fly-out navigation page from the navigation buttons.
 window.toggleNavList = function() {
 
     $(document).ready(function() {
@@ -69,45 +81,50 @@ window.toggleNavList = function() {
     });
 
     $('.nav--button').click(function() {
+
+        // Get data-link value from button and store for Id.
+        var menuId = $(this).data('link');
         
-        var anchorId = $(this).data('link');
+        console.log('You clicked on #' + menuId);
 
-        $('.nav--list').toggleClass('list--expanded');
-        
-        $('.nav--list').delay(750).animate({
+        // Close currently open fly-out navigation page and remove active nav button style.
+        $('.nav').find('.list--expanded').removeClass('list--expanded');
+        $('.nav--button').removeClass('activeMenu');
 
-            scrollTop: $('#' + anchorId).offset().top - 100
+        // Add active nav button style.
+        $('.nav--button[data-link="' + menuId + '"').addClass('activeMenu');
 
-        }, 500, 'easeOutCubic');
+        // Toggle fly-out menu associated with data-link Id stored.
+        $('#' + menuId).toggleClass('list--expanded');
 
-        $('#' + anchorId).find('.nav--listGroupItems').toggleClass('items-expanded', 250);
+        // $('#' + menuId).find('.nav--listGroupItems').not('.items-expanded', function() {
+        //     $(this).addClass('items-expanded');
+        // });
 
+        // Use the esc key to close the fly-out the menubar.
         $(document).keyup(function(e){
             
             if(e.keyCode === 27)
 
-            $('.nav--list').toggleClass('list--expanded');
+            $('#' + menuId).removeClass('list--expanded');
+
+            $('.nav--button[data-link="' + menuId + '"').removeClass('activeMenu');
 
         });
 
-        console.log('You clicked on #' + anchorId);
+        // Close the fly-out menu from the X toggle.
+        $('#' + menuId).find('.nav--listToggle').click(function() {
+
+            $('#' + menuId).removeClass('list--expanded');
+
+            $('.nav--button[data-link="' + menuId + '"').removeClass('activeMenu');
+        });
         
     });
 
-    $('.nav--listToggle').click(function() {
-        $('.nav--list').toggleClass('list--expanded');
-    });
-
 }
 
-window.autoToggleNavGroup = function() {
-
-    $(this).next().find('.groupToggle').toggleClass('rotate-180');
-
-    $(this).next().find('.groupToggle').closest('.nav--listGroup').find('.nav--listGroupItems').toggleClass('items-expanded');
-
-}
-
+// Collapse or expand link group within a fly-out menu.
 window.toggleNavGroup = function() {
 
     $(document).ready(function() {
@@ -115,12 +132,18 @@ window.toggleNavGroup = function() {
     });
 
     $('.groupToggle').click(function() {
+
+        // Rotate the caret.
         $(this).toggleClass('rotate-180');
+
+        // Toggle the link group inside the fly-out menu.
         $(this).closest('.nav--listGroup').find('.nav--listGroupItems').toggleClass('items-expanded', 250);
+
     });
 
 }
 
+// Toggle LTL and TL qutoe buttons on mobile.
 window.mobileQuote = function() {
 
     $(document).ready(function() {
@@ -137,6 +160,7 @@ window.mobileQuote = function() {
 
 }
 
+// Toggle search field on mobile.
 window.toggleSearch = function() {
 
     $('.search--button').click(function() {
@@ -149,12 +173,20 @@ window.toggleSearch = function() {
 
 }
 
+// Change the layout of the sidebar - specifically the company logo and company switcher.
 window.toggleLayoutTheme = function() {
 
-    console.log('You changed the layout theme!');
+    $(document).ready(function() {
+        console.log('Layout theme is ready to toggle.');
+    });
 
+    // Toggle company card/logo layout.
     $('.logo').click(function() {
+
+        console.log('You changed the layout theme!');
+        
         $('#app').toggleClass('largeCompanyCardLayout');
+        
     });
 
 }
