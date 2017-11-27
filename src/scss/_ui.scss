@@ -1,0 +1,40 @@
+// transitionitions
+$transition-150: 150ms ease;
+$transition-250: 250ms ease;
+$transition-350: 350ms ease;
+$transition-500: 500ms ease;
+$transition-750: 750ms ease;
+$transition-1000: 1000ms ease;
+
+
+// Drop Shadows
+$shadow-static: drop-shadow(0 .125rem .0625rem rgba(mix($grey-10, $grey-20), .25));
+$shadow-hover: drop-shadow(0 .35rem .5rem rgba(mix($grey-10, $grey-20), .5));
+
+$shadow-input: drop-shadow(0 .125rem .0625rem rgba(mix($grey-10, $grey-20), .15));
+$shadow-focus: drop-shadow(0 .35rem .3rem rgba(mix($grey-10, $grey-20), .25));
+
+$shadow-plain: drop-shadow(0 .125rem .3rem rgba(mix($grey-10, $grey-20), .25));
+
+
+// Border Radius
+$border-radius: .5rem;
+
+
+// Animations
+@keyframes rightArrowBounce {
+    0% {
+        transform: translateX(0px);
+    }
+    25% {
+        transform: translateX(6px);
+    }
+    100% {
+        transform: translateX(0px);
+    }
+}
+
+.rotate-180 {
+    transition: $transition-350;
+    transform: rotate(180deg);
+}

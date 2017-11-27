@@ -1,0 +1,1123 @@
+#app {
+    width: 100%;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: 1fr 8.8rem 3.8rem 5rem;
+    grid-template-rows: 7rem 5rem 1fr;
+    grid-template-areas:
+    "company search user user"
+    "dashboardQuote dashboardQuote dashboardQuote nav"
+    "mainContent mainContent mainContent mainContent";
+    .company {
+        grid-area: company;
+        width: 100%;
+        height: 100%;
+        display: grid;
+        grid-template-columns: 7rem 1fr;
+        grid-template-rows: repeat(2, 1fr);
+        grid-template-areas:
+        "company--logo company--name"
+        "company--logo company--switch";
+        background-color: $pipeline-blue;
+        color: $white;
+        &--logo {
+            grid-area: company--logo;
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            padding: 1rem;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            .logo {
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+                align-items: center;
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 1rem;
+                background-color: $white;
+                border-radius: $border-radius;
+                filter: $shadow-plain;
+                overflow: hidden;
+                transition: $transition-750;
+                &:hover {
+                    filter: $shadow-hover;
+                    transition: $transition-250;
+                }
+                img {
+                    width: auto;
+                    height: 100%;
+                }
+            }
+        }
+        &--name {
+            grid-area: company--name;
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            padding: .25rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            align-items: flex-start;
+            font-size: 1.15rem;
+            font-weight: 700;
+            text-align: left;
+            line-height: 1.25rem;
+        }
+        &--switch {
+            grid-area: company--switch;
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            padding: .25rem;
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-start;
+            align-items: flex-start;
+        }
+    }
+    .search {
+        grid-area: search;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        justify-content: center;
+        align-items: center;
+        color: $white;
+        background-color: $pipeline-blue;
+        &--button {
+            display: inline;
+            margin: 0;
+            padding: 0;
+            font-size: 1.75rem;
+            border: none;
+        }
+        &--full {
+            position: absolute;
+            z-index: 500;
+            top: 7rem;
+            left: 0;
+            width: calc(100% - 5rem);
+            height: 5rem;
+            margin: 0;
+            padding: 0 1rem;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            background-color: $pipeline-blue;
+            filter: none;
+            transform: scaleY(0);
+            transform-origin: top;
+            transition: $transition-500;
+            &:focus-within {
+                filter: none;
+                transition: $transition-250;
+            }
+            &.expanded {
+                transition: $transition-250;
+                transform: scaleY(1);
+            }
+            &Toggle {
+                position: absolute;
+                top: 0;
+                right: -5rem;
+                width: 5rem;
+                height: 5rem;
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+                align-items: center;
+                background-color: $pipeline-blue;
+            }
+            .searchFilter {
+                position: relative;
+                width: 25rem;
+                height: 3rem;
+                margin: 0;
+                padding: 0;
+                font-size: .75rem;
+                font-weight: 700;
+                text-transform: uppercase;
+                color: mix($grey-70, $grey-80);
+                white-space: nowrap;
+                background-color: mix($grey-90, $grey-100, 35%);
+                border: 0.0625rem solid $grey-80;
+                border-right: none;
+                border-radius: 3rem 0 0 3rem;
+                overflow: hidden;
+                transition: $transition-500;
+                &:hover {
+                    background-color: $white;
+                    transition: $transition-350;
+                }
+                &Label {
+                    position: absolute;
+                    top: 0;
+                    right: 0;
+                    bottom: 0;
+                    left: 0;
+                    margin: 0;
+                    padding: 0;
+                    width: auto;
+                    height: 100%;
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: center;
+                    align-items: center;
+                    overflow: hidden;
+                    .searchFilterText {
+                        &::after {
+                            opacity: 1;
+                            color: $text-primary;
+                            font-family: $font-muli;
+                            display: inline-block;
+                            content: 'All Companies';
+                        }
+                    }
+                    .searchFilterCheck {
+                        display: inline-block;
+                        opacity: 0;
+                        width: 1.5rem;
+                        margin: 0 -1.5rem 0 0;
+                        color: $pipeline-blue;
+                        transition: $transition-500;
+                    }
+                }
+                #searchFilter {
+                    -webkit-appearance: none;
+                    appearance: none;
+                    border: none;
+                    &:checked ~ .searchFilterLabel {
+                        color: $white;
+                        background-color: mix($grey-100, $grey-90);
+                        .searchFilterText {
+                            &::after {
+                                opacity: 1;
+                                font-family: $font-muli;
+                                color: $pipeline-blue;
+                                display: inline-block;
+                                content: 'All Companies';
+                            }
+                        }
+                        .searchFilterCheck {
+                            opacity: 1;
+                            margin: 0 1rem 0 0;
+                            transition: $transition-250;
+                        }
+                    }
+                }
+            }
+            .searchField {
+                width: 100%;
+                height: 3rem;
+                margin: 0;
+                padding: 0 1.5rem;
+                display: flex;
+                flex-direction: row;
+                justify-content: flex-start;
+                align-items: center;
+                font-family: $font-muli;
+                font-size: 1rem;
+                font-weight: 400;
+                text-transform: none;
+                color: $grey-60;
+                background-color: mix($grey-90, $grey-100, 35%);
+                -webkit-appearance: none;
+                appearance: none;
+                outline: none;
+                border: 0.0625rem solid $grey-80;
+                border-radius: 0 3rem 3rem 0;
+                overflow: hidden;
+                transition: $transition-350;
+                &::-webkit-input-placeholder {
+                    font-family: $font-muli;
+                    font-size: 1rem;
+                    font-weight: 300;
+                    text-transform: none;
+                    color: $grey-80;
+                }
+                &:focus {
+                    background-color: $white;
+                    transition: $transition-350;
+                }
+            }
+        }
+    }
+    .user {
+        grid-area: user;
+        position: relative;
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        padding: .5rem;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        justify-content: center;
+        align-items: center;
+        color: $white;
+        background-color: $pipeline-blue;
+        .userToggle {
+            &:hover {
+                cursor: pointer;
+            }
+        }
+        &Info {
+            position: absolute;
+            z-index: 1500;
+            top: 100%;
+            right: 0;
+            width: 50vw;
+            height: 5rem;
+            margin: 0;
+            padding: .75rem 1.5rem;
+            background-color: $pipeline-blue;
+            color: $white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-end;
+            transform: scaleY(0);
+            transform-origin: bottom;
+            transition: $transition-250;
+            &.expanded {
+                transform: scaleY(1);
+                transition: $transition-250;
+            }
+            &--name {
+                font-size: 1.15rem;
+                font-weight: 400;
+            }
+            &--type {
+                font-size: .95rem;
+                font-weight: 700;
+                text-transform: uppercase;
+            }
+        }
+        .avatar {
+            width: 4rem;
+            height: 4rem;
+            margin: 0 .5rem;
+            display: inline-flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            border-radius: 100%;
+            overflow: hidden;
+            background-color: mix($grey-90, $grey-100);
+            color: $grey-50;
+            font-size: 2rem;
+        }
+        .userActions {
+            position: absolute;
+            z-index: 1500;
+            top: calc(100% + 5rem);
+            right: 0;
+            width: 50vw;
+            margin: 0;
+            padding: 0;
+            transform: scaleY(0);
+            transform-origin: top;
+            transition: $transition-250;
+            &.expanded {
+                transform: scaleY(1);
+                transition: $transition-250;
+            }
+        }
+        &--buttonList {
+            width: 100%;
+            height: auto;
+            color: $white;
+        }
+        &--button {
+            width: 100%;
+            height: 4rem;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            background-color: $pipeline-blue;
+            transition: $transition-250;
+            &Label {
+                position: relative;
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: .5rem 1.5rem;
+                display: flex;
+                flex-direction: row;
+                justify-content: flex-start;
+                align-items: center;
+                &::after {
+                    content: ' ';
+                    position: absolute;
+                    top: 0;
+                    right: 0;
+                    bottom: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    background-color: mix($grey-80, $grey-70);
+                    mix-blend-mode: overlay;
+                }
+            }
+            &Icon {
+                position: relative;
+                width: 4rem;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+                align-items: center;
+                &::after {
+                    content: ' ';
+                    position: absolute;
+                    top: 0;
+                    right: 0;
+                    bottom: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    background-color: mix($grey-80, $grey-90);
+                    mix-blend-mode: overlay;
+                }
+            }
+            &:hover {
+                background-color: $pipeline-blue;
+                cursor: pointer;
+                transition: $transition-500;
+                svg {
+                    animation-name: rightArrowBounce;
+                    animation-duration: 300ms;
+                    animation-delay: 100ms;
+                    animation-iteration-count: 2;
+                }
+                .user--button {
+                    &Label {
+                        &::after {
+                            background-color: $grey-50;
+                            transition: $transition-500;
+                        }
+                    }
+                    &Icon {
+                        &::after {
+                            background-color: $grey-40;
+                            transition: $transition-500;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .dashboardQuote {
+        grid-area: dashboardQuote;
+        position: relative;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        justify-content: center;
+        align-items: center;
+        font-size: 1rem;
+        font-weight: 700;
+        text-align: left;
+        text-transform: uppercase;
+        .quote--small {
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            padding: 0rem;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            line-height: 1.1rem;
+            svg {
+                width: 1rem;
+                margin: 0 .75rem 0 0 ;
+            }
+        }
+        .quote--large {
+            position: absolute;
+            z-index: 100;
+            width: 100%;
+            height: 5rem;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            justify-content: center;
+            align-items: center;
+            top: 100%;
+            left: 0;
+            right: 0;
+            transform: scaleY(0);
+            transform-origin: top;
+            transition: $transition-250;
+            &.quote--expanded {
+                transform: scaleY(1);
+                transition: $transition-500;
+            }
+            &Toggle {
+                position: absolute;
+                top: 0;
+                right: -5rem;
+                width: 5rem;
+                height: 5rem;
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+                align-items: center;
+            }
+        }
+    }
+    nav {
+        grid-area: nav;
+        height: 100%;
+        overflow-y: scroll;
+        -ms-overflow-style: -ms-autohiding-scrollbar;
+        &::-webkit-scrollbar {
+            width: 0px;
+            background-color: transparent;
+        }
+        .nav--toggle {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.5rem;
+            color: $white;
+            background-color: $pipeline-blue;
+        }
+        .nav {
+            position: absolute;
+            z-index: 1000;
+            top: 12rem;
+            left: 0;
+            right: 0;
+            width: 100%;
+            height: 0;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            background-color: $pipeline-blue;
+            font-size: 1.25rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            text-align: left;
+            color: $white;
+            transition: $transition-250;
+            &.nav--expanded {
+                height: 100%;
+                transition: $transition-500;
+            }
+            &--buttonList {
+                width: 100%;
+                height: auto;
+                background-color: transparent;
+            }
+            &--button {
+                width: 100%;
+                height: 5rem;
+                margin: 0;
+                padding: 0;
+                display: flex;
+                flex-direction: row;
+                flex-wrap: nowrap;
+                transition: $transition-250;
+                &Label {
+                    position: relative;
+                    width: 100%;
+                    height: 100%;
+                    margin: 0;
+                    padding: .5rem 1.5rem;
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: flex-start;
+                    align-items: center;
+                    color: $white;
+                    &::after {
+                        content: ' ';
+                        position: absolute;
+                        top: 0;
+                        right: 0;
+                        bottom: 0;
+                        left: 0;
+                        width: 100%;
+                        height: 100%;
+                        background-color: mix($grey-80, $grey-70);
+                        mix-blend-mode: overlay;
+                        transition: $transition-250;
+                    }
+                }
+                &Icon {
+                    position: relative;
+                    width: 5.75rem;
+                    height: 100%;
+                    margin: 0;
+                    padding: 0;
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: center;
+                    align-items: center;
+                    &::after {
+                        content: ' ';
+                        position: absolute;
+                        top: 0;
+                        right: 0;
+                        bottom: 0;
+                        left: 0;
+                        width: 100%;
+                        height: 100%;
+                        background-color: mix($grey-80, $grey-90);
+                        mix-blend-mode: overlay;
+                        transition: $transition-250;
+                    }
+                }
+                &:hover {
+                    background-color: $pipeline-blue;
+                    cursor: pointer;
+                    transition: $transition-500;
+                    svg {
+                        animation-name: rightArrowBounce;
+                        animation-duration: 300ms;
+                        animation-delay: 100ms;
+                        animation-iteration-count: 2;
+                    }
+                    .nav--button {
+                        &Label {
+                            &::after {
+                                background-color: $grey-50;
+                                transition: $transition-500;
+                            }
+                        }
+                        &Icon {
+                            &::after {
+                                background-color: $grey-40;
+                                transition: $transition-500;
+                            }
+                        }
+                    }
+                }
+                &.activeMenu {
+                    background-color: $pipeline-blue;
+                    cursor: pointer;
+                    transition: $transition-500;
+                    .nav--button {
+                        &Label {
+                            &::after {
+                                background-color: $grey-40;
+                                transition: $transition-500;
+                            }
+                        }
+                        &Icon {
+                            &::after {
+                                background-color: $grey-30;
+                                transition: $transition-500;
+                            }
+                        }
+                    }
+                }
+            }
+            .nav--list {
+                position: absolute;
+                z-index: 1000;
+                top: 0;
+                left: 100%;
+                width: 100%;
+                height: calc(100% - 12rem);
+                overflow-y: scroll;
+                margin: 0;
+                padding: 1.5rem 2rem;
+                background-color: $white;
+                color: $text-primary;
+                transition: $transition-350;
+                &.list--expanded {
+                    left: 0%;
+                    transition: $transition-500;
+                }
+                &Toggle {
+                    position: absolute;
+                    top: 0rem;
+                    right: 0rem;
+                    width: 5rem;
+                    height: 5rem;
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: center;
+                    align-items: center;
+                    font-size: 2rem;
+                }
+                &Group {
+                    width: 100%;
+                    height: auto;
+                    margin: 2rem 0;
+                    padding: .5rem 0;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: flex-start;
+                    align-items: flex-start;
+                    &CategoryHeading {
+                        margin: 4rem 0 0;
+                        font-size: 2rem;
+                        font-weight: 400;
+                        text-transform: uppercase;
+                    }
+                    &Header {
+                        position: relative;
+                        width: 100%;
+                        height: 100%;
+                        padding: 1rem 0;
+                        display: flex;
+                        flex-direction: row;
+                        flex-wrap: nowrap;
+                        justify-content: space-between;
+                        align-items: center;
+                        .groupHeading {
+                            display: block;
+                            width: 100%;
+                            font-size: 1.25rem;
+                            font-weight: 700;
+                            text-transform: uppercase;
+                            &::after {
+                                content: ' ';
+                                margin: 0;
+                                position: absolute;
+                                bottom: 0;
+                                left: 0;
+                                right: 0;
+                                border-bottom: 0.125rem solid $grey-80;
+                            }
+                        }
+                        .groupToggle {
+                            display: block;
+                            transition: $transition-350;
+                            &:hover {
+                                cursor: pointer;
+                            }
+                        }
+                    }
+                    &Items {
+                        display: flex;
+                        flex-direction: row;
+                        flex-wrap: wrap;
+                        justify-content: flex-start;
+                        align-items: flex-start;
+                        width: 100%;
+                        height: 0;
+                        overflow: hidden;
+                        margin: 1rem 0;
+                        padding: 0;
+                        column-count: 2; // Changed
+                        column-fill: balance;
+                        font-size: 1.25rem;
+                        font-weight: 300;
+                        text-transform: none;
+                        transform: scaleY(0);
+                        transform-origin: top;
+                        transition: $transition-250;
+                        span {
+                            display: block;
+                            width: 50%;
+                            margin: 0 0 .75rem;
+                            padding: .5rem 0 0;
+                        }
+                        &.items-expanded {
+                            height: auto;
+                            transform: scaleY(1);
+                            transition: $transition-500;
+                        }
+                    }
+                }
+            }
+        }
+        footer {
+            width: 100%;
+            height: fit-content;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            align-items: flex-start;
+            margin: 5rem 0 0;
+            padding: 1rem 1.5rem;
+            font-size: .75rem;
+            font-weight: 400;
+            text-transform: none;
+            span {
+                margin: .25rem 0;
+                padding: 0;
+            }
+        }
+    }
+    #mainContent {
+        grid-area: mainContent;
+        position: relative;
+        width: 100%;
+        overflow-x: hidden;
+        overflow-y: auto;
+    }
+}
+
+.lockScroll {
+    overflow-y: hidden  !important;
+}
+
+
+
+@media screen and (max-width: 960px) and (max-height: 480px) and (orientation: landscape) {
+    #app {
+        grid-template-columns: 1fr 22rem 6rem 6rem 5rem;
+        grid-template-rows: 7rem 1fr;
+        grid-template-areas:
+        "company dashboardQuote search user nav"
+        "mainContent mainContent mainContent mainContent mainContent";
+        .user {
+            .avatar {
+                width: 3rem;
+                height: 3rem;
+                font-size: 1.25rem;
+            }
+        }
+        .dashboardQuote {
+            position: static;
+            flex-direction: row;
+            .quote {
+                justify-content: center;
+            }
+            .quote--large {
+                width: calc(100vw - 5rem);
+                top: 5rem;
+                left: 0;
+                right: 0;
+            }
+        }
+        nav {
+            .nav {
+                top: 7rem;
+                .nav--list {
+                    height: calc(100vh - 7rem);
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 600px) and (max-height: 320px) and (orientation: landscape) {
+    #app {
+        grid-template-columns: 1fr 12rem 6rem 6rem 5rem;
+        .dashboardQuote {
+            flex-direction: column;
+            .quote--large {
+                top: 7rem;
+            }
+        }
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    #app {
+        grid-template-columns: 20rem 1fr 15rem;
+        grid-template-rows: 5rem 10rem 1fr;
+        grid-template-areas:
+        "company search user"
+        "dashboardQuote mainContent mainContent"
+        "nav mainContent mainContent";
+        transition: $transition-500;
+        .company {
+            grid-area: company;
+            width: 100%;
+            height: 100%;
+            display: grid;
+            grid-template-columns: 5rem 1fr 2rem;
+            grid-template-rows: 100%;
+            grid-template-areas:
+            "company--logo company--name company--switch";
+            &--name {
+                justify-content: center;
+                font-size: .85rem;
+                line-height: 1rem;
+            }
+            &--switch {
+                justify-content: flex-end;
+                align-items: center;
+            }
+        }
+        &.largeCompanyCardLayout {
+            grid-template-rows: 5rem 15rem 10rem 1fr;
+            grid-template-areas:
+            "company search user"
+            "company mainContent mainContent"
+            "dashboardQuote mainContent mainContent"
+            "nav mainContent mainContent";
+            transition: $transition-500;
+            .company {
+                grid-template-columns: 1fr 2rem;
+                grid-template-rows: 1fr 2rem;
+                grid-template-areas:
+                "company--logo company--logo"
+                "company--name company--switch";
+                &--name {
+                    flex-direction: row;
+                    justify-content: flex-start;
+                    align-items: center;
+                    padding: 0 0 0 1rem;
+                }
+                &--switch {
+                    flex-direction: row;
+                    align-items: center;
+                    padding: 0 1rem 0 0;
+                }
+            }
+        }
+        .search {
+            grid-area: search;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            justify-content: center;
+            align-items: center;
+            &--button {
+                display: none;
+            }
+            &--full {
+                position: static;
+                width: 100%;
+                height: auto;
+                padding: 0 5rem;
+                background-color: transparent;
+                filter: $shadow-input;
+                transform: scaleY(1);
+                transition: $transition-500;
+                &:focus-within {
+                    filter: $shadow-focus;
+                    transition: $transition-250;
+                }
+                &Toggle {
+                    display: none;
+                }
+                .searchFilter {
+                    &Label {
+                        .searchFilterText {
+                            &::after {
+                                content: 'Search All Companies';
+                            }
+                        }
+                    }
+                    #searchFilter {
+                        &:checked ~ .searchFilterLabel {
+                            .searchFilterText {
+                                &::after {
+                                    content: 'Search All Companies';
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        .user {
+            grid-area: user;
+            justify-content: flex-end;
+            &Info {
+                position: static;
+                width: auto;
+                height: 100%;
+                padding: 0;
+                background-color: transparent;
+                transform: scaleY(1);
+                &--name {
+                    font-size: .85rem;
+                }
+                &--type {
+                    font-size: .7rem;
+                }
+            }
+            .avatar {
+                width: 3rem;
+                height: 3rem;
+                margin: 0 .5rem 0 1rem;
+                font-size: 1.5rem;
+            }
+            .userActions {
+                top: 100%;
+                width: 100%;
+                &.expanded {
+                    transform: scaleY(1);
+                    transition: $transition-250;
+                }
+            }    
+        }
+        .dashboardQuote {
+            flex-direction: column;
+            font-size: .85rem;
+            .dashboard, .quote {
+                white-space: nowrap;
+                padding: 0rem;
+                br {
+                    content: ' ';
+                    &::after {
+                        content: ' ';
+                    }
+                }
+            }
+            .quote--small {
+                display: none;
+            }
+            .quote--large {
+                position: static;
+                height: 100%;
+                transform: scaleY(1);
+                &Toggle {
+                    display: none;
+                }
+            }
+        }
+        nav {
+            .nav--toggle {
+                display: none;
+            }
+            .nav {
+                position: static;
+                height: 100%;
+                font-size: .85rem; // Changed
+                &--button {
+                    height: 4rem;
+                    &Icon {
+                        width: 4rem;
+                    }
+                }
+                .nav--list {
+                    top: 5rem; // Added
+                    left: 100%; // Added
+                    width: calc(100vw - 20rem); // Added
+                    height: calc(100% - 5rem); // Added
+                    overflow-y: scroll; // Added
+                    &.list--expanded {
+                        left: 20rem;
+                        transition: $transition-500;
+                    }
+                    &Group {
+                        margin: 1rem 0;
+                        &CategoryHeading {
+                            margin: 2rem 0; // Changed
+                            font-size: 1.25rem; // Changed
+                        }
+                        &Header {
+                            .groupHeading {
+                                font-size: 1rem; // Changed
+                            }
+                        }
+                        &Items {
+                            column-count: 3; // Changed
+                        }
+                    }
+                }
+            }
+        }
+    }    
+}
+
+.uiBtnSidebar, .uiBtnSidebarSecondary {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    &Link {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        padding: 0rem;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        background-color: $pipeline-blue;
+        color: $white;
+        line-height: 1.1rem;
+        text-decoration: none;
+        transition: $transition-500;
+        &::after {
+            content: ' ';
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            mix-blend-mode: overlay;
+            transition: $transition-500;
+        }
+        br {
+            content: none;
+            &::after {
+                content: none;
+            }
+        }
+        svg {
+            width: 1rem;
+            margin: 0 .75rem 0 0 ;
+        }
+        .closeQuote {
+            margin: 0;
+        }
+        &:hover {
+            background-color: $pipeline-blue;
+            transition: $transition-250;
+            &::after {
+                mix-blend-mode: overlay;
+                transition: $transition-250;            
+            }
+        }
+    }    
+}
+
+.uiBtnSidebar {
+    &Link {
+        &::after {
+            background-color: $grey-40;
+        }
+        &:hover {
+            &::after {
+                background-color: $grey-30;
+            }
+        }
+    }
+}
+
+.uiBtnSidebarSecondary {
+    &Link {
+        &::after {
+            background-color: $grey-30;
+        }
+        &:hover {
+            &::after {
+                background-color: $grey-40;
+            }
+        }
+    }
+}
