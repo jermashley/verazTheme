@@ -907,11 +907,11 @@
                 height: auto;
                 padding: 0 5rem;
                 background-color: transparent;
-                filter: $shadow-input;
+                // filter: $shadow-input;
                 transform: scaleY(1);
                 transition: $transition-500;
                 &:focus-within {
-                    filter: $shadow-focus;
+                    // filter: $shadow-focus;
                     transition: $transition-250;
                 }
                 &Toggle {
