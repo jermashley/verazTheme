@@ -33278,7 +33278,7 @@ window.toggleNavList = function() {
         // });
 
         // Use the esc key to close the fly-out the menubar.
-        $(document).keyup(function(e){
+        $(document).keyup(function(e) {
             
             if(e.keyCode === 27)
 
