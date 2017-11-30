@@ -29,65 +29,13 @@
                     <i class="fal fa-repeat"></i>
                 </div>
 
-                <div class="company--modal">
-
-                    <div class="company--modalClose">
-                        <i class="fal fa-times"></i>
-                    </div>
-
-                    <div class="company--modalFilter">
-
-                        <label class="companyFilter" for="companyFilter">
-                            
-                            <div class="companyFilterHeading">
-                                <span>Switch Companies</span>
-                            </div>
-
-                            <i class="fa fa-keyboard companyFilterIcon"></i>
-
-                            <input id="companyFilter" class="uiTextField" type="text" placeholder="start typing here">
-
-                        </label>
-
-                    </div>
-
-                    <div class="company--modalList">
-                        <span class="company--modalListItem"><a href="" class="companyLink">Company A</a></span>
-                        <span class="company--modalListItem"><a href="" class="companyLink">Company B</a></span>
-                        <span class="company--modalListItem"><a href="" class="companyLink">Company C</a></span>
-                        <span class="company--modalListItem"><a href="" class="companyLink">Company D</a></span>
-                        <span class="company--modalListItem"><a href="" class="companyLink">Company E</a></span>
-                        <span class="company--modalListItem"><a href="" class="companyLink">Company A</a></span>
-                        <span class="company--modalListItem"><a href="" class="companyLink">Company B</a></span>
-                        <span class="company--modalListItem"><a href="" class="companyLink">Company C</a></span>
-                        <span class="company--modalListItem"><a href="" class="companyLink">Company D</a></span>
-                        <span class="company--modalListItem"><a href="" class="companyLink">Company E</a></span>
-                        <span class="company--modalListItem"><a href="" class="companyLink">Company A</a></span>
-                        <span class="company--modalListItem"><a href="" class="companyLink">Company B</a></span>
-                        <span class="company--modalListItem"><a href="" class="companyLink">Company C</a></span>
-                        <span class="company--modalListItem"><a href="" class="companyLink">Company D</a></span>
-                        <span class="company--modalListItem"><a href="" class="companyLink">Company E</a></span>
-                        <span class="company--modalListItem"><a href="" class="companyLink">Company A</a></span>
-                        <span class="company--modalListItem"><a href="" class="companyLink">Company B</a></span>
-                        <span class="company--modalListItem"><a href="" class="companyLink">Company C</a></span>
-                        <span class="company--modalListItem"><a href="" class="companyLink">Company D</a></span>
-                        <span class="company--modalListItem"><a href="" class="companyLink">Company E</a></span>
-                        <span class="company--modalListItem"><a href="" class="companyLink">Company A</a></span>
-                        <span class="company--modalListItem"><a href="" class="companyLink">Company B</a></span>
-                        <span class="company--modalListItem"><a href="" class="companyLink">Company C</a></span>
-                        <span class="company--modalListItem"><a href="" class="companyLink">Company D</a></span>
-                        <span class="company--modalListItem"><a href="" class="companyLink">Company E</a></span>
-                    </div>
-                    
-                </div>
-
             </div>
 
             <div class="search">
 
-                <form class="search--full">
+                <div class="search--full">
                     
-                    <!-- <div class="searchFilter">
+                    <div class="searchFilter">
 
                         <input type="checkbox" name="searchFilter" id="searchFilter">
 
@@ -96,24 +44,20 @@
                             <span class="searchFilterText"></span>
                         </label>
 
-                    </div> -->
+                    </div>
                     
 
                     <input type="text" class="searchField" placeholder="Search for items here">
-
-                    <button type="submit" class="searchTrigger">
-                        <i class="fal fa-search"></i>
-                    </button>
 
                     <div class="search--fullToggle">
                         <i class="fal fa-times"></i>
                     </div>
 
-                </form>
+                </div>
 
-                <button type="none" class="search--button">
-					<i class="fal fa-search"></i>
-				</button>
+                <div class="search--button">
+                    <i class="fal fa-search"></i>
+                </div>
 
             </div>
 
@@ -130,18 +74,14 @@
                         
                     <div class="user--buttonList">
 
-                        <div class="user--button">
-							<a href="/change_password.php">
-								<div class="user--buttonLabel">Reset Password</div>
-								<div class="user--buttonIcon"><i class="fal fa-lock-alt"></i></div>
-							</a>
-						</div>
+                        <div class="user--button" data-link="userResetPassword">
+                            <div class="user--buttonLabel">Reset Password</div>
+                            <div class="user--buttonIcon"><i class="fal fa-lock-alt"></i></div>
+                        </div>
 
-                        <div class="user--button">
-                            <a href="/logout.php">
-                                <div class="user--buttonLabel">Log Out</div>
-                                <div class="user--buttonIcon"><i class="fal fa-sign-out"></i></div>
-                            </a>
+                        <div class="user--button" data-link="userResetPassword">
+                            <div class="user--buttonLabel">Log Out</div>
+                            <div class="user--buttonIcon"><i class="fal fa-sign-out"></i></div>
                         </div>
 
                     </div>
@@ -212,67 +152,67 @@
                     <i class="fa fa-bars"></i>
                 </div>
 
-                <div class="mainNav">
+                <div class="nav">
                         
                     <!-- Navigation Buttons -->
-                    <div class="mainNav--buttonList">
-                        <div class="mainNav--button" data-link="navAdministration">
-                            <div class="mainNav--buttonLabel">Administration</div>
-                            <div class="mainNav--buttonIcon"><i class="fal fa-chevron-right"></i></div>
+                    <div class="nav--buttonList">
+                        <div class="nav--button" data-link="navAdministration">
+                            <div class="nav--buttonLabel">Administration</div>
+                            <div class="nav--buttonIcon"><i class="fal fa-chevron-right"></i></div>
                         </div>
-                        <div class="mainNav--button" data-link="navBillOfLading">
-                            <div class="mainNav--buttonLabel">Bill of Lading</div>
-                            <div class="mainNav--buttonIcon"><i class="fal fa-chevron-right"></i></div>
+                        <div class="nav--button" data-link="navBillOfLading">
+                            <div class="nav--buttonLabel">Bill of Lading</div>
+                            <div class="nav--buttonIcon"><i class="fal fa-chevron-right"></i></div>
                         </div>
-                        <div class="mainNav--button" data-link="navPickupRequest">
-                            <div class="mainNav--buttonLabel">Pickup Request</div>
-                            <div class="mainNav--buttonIcon"><i class="fal fa-chevron-right"></i></div>
+                        <div class="nav--button" data-link="navPickupRequest">
+                            <div class="nav--buttonLabel">Pickup Request</div>
+                            <div class="nav--buttonIcon"><i class="fal fa-chevron-right"></i></div>
                         </div>
-                        <div class="mainNav--button" data-link="navTracking">
-                            <div class="mainNav--buttonLabel">Tracking</div>
-                            <div class="mainNav--buttonIcon"><i class="fal fa-chevron-right"></i></div>
+                        <div class="nav--button" data-link="navTracking">
+                            <div class="nav--buttonLabel">Tracking</div>
+                            <div class="nav--buttonIcon"><i class="fal fa-chevron-right"></i></div>
                         </div>
-                        <div class="mainNav--button" data-link="navDocumentRetrieval">
-                            <div class="mainNav--buttonLabel">Document Retrieval</div>
-                            <div class="mainNav--buttonIcon"><i class="fal fa-chevron-right"></i></div>
+                        <div class="nav--button" data-link="navDocumentRetrieval">
+                            <div class="nav--buttonLabel">Document Retrieval</div>
+                            <div class="nav--buttonIcon"><i class="fal fa-chevron-right"></i></div>
                         </div>
-                        <div class="mainNav--button" data-link="navReportCenter">
-                            <div class="mainNav--buttonLabel">Report Center</div>
-                            <div class="mainNav--buttonIcon"><i class="fal fa-chevron-right"></i></div>
+                        <div class="nav--button" data-link="navReportCenter">
+                            <div class="nav--buttonLabel">Report Center</div>
+                            <div class="nav--buttonIcon"><i class="fal fa-chevron-right"></i></div>
                         </div>
-                        <div class="mainNav--button" data-link="navViewShipments">
-                            <div class="mainNav--buttonLabel">View Shipments</div>
-                            <div class="mainNav--buttonIcon"><i class="fal fa-chevron-right"></i></div>
+                        <div class="nav--button" data-link="navViewShipments">
+                            <div class="nav--buttonLabel">View Shipments</div>
+                            <div class="nav--buttonIcon"><i class="fal fa-chevron-right"></i></div>
                         </div>
-                        <div class="mainNav--button" data-link="navInvoices">
-                            <div class="mainNav--buttonLabel">Invoices</div>
-                            <div class="mainNav--buttonIcon"><i class="fal fa-chevron-right"></i></div>
+                        <div class="nav--button" data-link="navInvoices">
+                            <div class="nav--buttonLabel">Invoices</div>
+                            <div class="nav--buttonIcon"><i class="fal fa-chevron-right"></i></div>
                         </div>
-                        <div class="mainNav--button" data-link="navCoding">
-                            <div class="mainNav--buttonLabel">Coding</div>
-                            <div class="mainNav--buttonIcon"><i class="fal fa-chevron-right"></i></div>
+                        <div class="nav--button" data-link="navCoding">
+                            <div class="nav--buttonLabel">Coding</div>
+                            <div class="nav--buttonIcon"><i class="fal fa-chevron-right"></i></div>
                         </div>
-                        <div class="mainNav--button" data-link="navCargoClaims">
-                            <div class="mainNav--buttonLabel">Cargo Claims</div>
-                            <div class="mainNav--buttonIcon"><i class="fal fa-chevron-right"></i></div>
+                        <div class="nav--button" data-link="navCargoClaims">
+                            <div class="nav--buttonLabel">Cargo Claims</div>
+                            <div class="nav--buttonIcon"><i class="fal fa-chevron-right"></i></div>
                         </div>
                     </div>
 
                     <!-- Navigation List View -->
-                    <div class="mainNav--list" id="navAdministration">
+                    <div class="nav--list" id="navAdministration">
                         
                         <!-- Toggle to close navigation list -->
-                        <div class="mainNav--listToggle">
+                        <div class="nav--listToggle">
                             <i class="fal fa-times"></i>
                         </div>
                                                 
                         <!-- Group heading and content -->
-                        <div class="mainNav--listGroup">
+                        <div class="nav--listGroup">
 
                             <!-- Category Header -->
-                            <span class="mainNav--listGroupCategoryHeading">Administration</span>
+                            <span class="nav--listGroupCategoryHeading">Administration</span>
 
-                            <div class="mainNav--listGroupHeader">
+                            <div class="nav--listGroupHeader">
 
                                 <span class="groupHeading">Setup</span>
 
@@ -283,7 +223,7 @@
                             </div>
 
                             <!-- List of Navigation Links for Group -->
-                            <div class="mainNav--listGroupItems items-expanded">
+                            <div class="nav--listGroupItems items-expanded">
                                 <span>Lorem, ipsum.</span>
                                 <span>Neque, provident.</span>
                                 <span>Eligendi, odio?</span>
@@ -306,19 +246,19 @@
                     </div>
 
                     <!-- Navigation List View -->
-                    <div class="mainNav--list" id="navBillOfLading">
+                    <div class="nav--list" id="navBillOfLading">
                         
                         <!-- Toggle to close navigation list -->
-                        <div class="mainNav--listToggle">
+                        <div class="nav--listToggle">
                             <i class="fal fa-times"></i>
                         </div>
                                                 
                         <!-- Group heading and content -->
-                        <div class="mainNav--listGroup">
+                        <div class="nav--listGroup">
 
-                            <span class="mainNav--listGroupCategoryHeading">Bill of Lading</span>
+                            <span class="nav--listGroupCategoryHeading">Bill of Lading</span>
                         
-                            <div class="mainNav--listGroupHeader">
+                            <div class="nav--listGroupHeader">
 
                                 <span class="groupHeading">Setup</span>
                                 <span class="groupToggle rotate-180">
@@ -327,7 +267,7 @@
             
                             </div>
 
-                            <div class="mainNav--listGroupItems items-expanded">
+                            <div class="nav--listGroupItems items-expanded">
                                 <span>Lorem, ipsum.</span>
                                 <span>Neque, provident.</span>
                                 <span>Eligendi, odio?</span>
@@ -350,20 +290,20 @@
                     </div>
 
                     <!-- Navigation List View -->
-                    <div class="mainNav--list" id="navPickupRequest">
+                    <div class="nav--list" id="navPickupRequest">
                             
                             <!-- Toggle to close navigation list -->
-                            <div class="mainNav--listToggle">
+                            <div class="nav--listToggle">
                                 <i class="fal fa-times"></i>
                             </div>
                                                     
                             <!-- Group heading and content -->
-                            <div class="mainNav--listGroup">
+                            <div class="nav--listGroup">
 
                             <!-- Category Header -->
-                            <span class="mainNav--listGroupCategoryHeading">Pickup Request</span>    
+                            <span class="nav--listGroupCategoryHeading">Pickup Request</span>    
 
-                            <div class="mainNav--listGroupHeader">
+                            <div class="nav--listGroupHeader">
 
                                 <span class="groupHeading">Setup</span>
                                 <span class="groupToggle rotate-180">
@@ -372,7 +312,7 @@
             
                             </div>
 
-                            <div class="mainNav--listGroupItems items-expanded">
+                            <div class="nav--listGroupItems items-expanded">
                                 <span>Lorem, ipsum.</span>
                                 <span>Neque, provident.</span>
                                 <span>Eligendi, odio?</span>
@@ -395,20 +335,20 @@
                     </div>
 
                     <!-- Navigation List View -->
-                    <div class="mainNav--list" id="navTracking">
+                    <div class="nav--list" id="navTracking">
                             
                         <!-- Toggle to close navigation list -->
-                        <div class="mainNav--listToggle">
+                        <div class="nav--listToggle">
                             <i class="fal fa-times"></i>
                         </div>
                                                 
                         <!-- Group heading and content -->
-                        <div class="mainNav--listGroup">
+                        <div class="nav--listGroup">
 
                             <!-- Category Header -->
-                            <span class="mainNav--listGroupCategoryHeading">Tracking</span>
+                            <span class="nav--listGroupCategoryHeading">Tracking</span>
                             
-                            <div class="mainNav--listGroupHeader">
+                            <div class="nav--listGroupHeader">
 
                                 <span class="groupHeading">Setup</span>
                                 <span class="groupToggle rotate-180">
@@ -417,7 +357,7 @@
             
                             </div>
 
-                            <div class="mainNav--listGroupItems items-expanded">
+                            <div class="nav--listGroupItems items-expanded">
                                 <span>Lorem, ipsum.</span>
                                 <span>Neque, provident.</span>
                                 <span>Eligendi, odio?</span>
@@ -440,20 +380,20 @@
                     </div>
 
                     <!-- Navigation List View -->
-                    <div class="mainNav--list" id="navDocumentRetrieval">
+                    <div class="nav--list" id="navDocumentRetrieval">
                             
                         <!-- Toggle to close navigation list -->
-                        <div class="mainNav--listToggle">
+                        <div class="nav--listToggle">
                             <i class="fal fa-times"></i>
                         </div>
                                                 
                         <!-- Group heading and content -->
-                        <div class="mainNav--listGroup">
+                        <div class="nav--listGroup">
 
                             <!-- Category Header -->
-                            <span class="mainNav--listGroupCategoryHeading">Document Retreival</span>
+                            <span class="nav--listGroupCategoryHeading">Document Retreival</span>
                             
-                            <div class="mainNav--listGroupHeader">
+                            <div class="nav--listGroupHeader">
 
                                 <span class="groupHeading">Setup</span>
                                 <span class="groupToggle rotate-180">
@@ -462,7 +402,7 @@
             
                             </div>
 
-                            <div class="mainNav--listGroupItems items-expanded">
+                            <div class="nav--listGroupItems items-expanded">
                                 <span>Lorem, ipsum.</span>
                                 <span>Neque, provident.</span>
                                 <span>Eligendi, odio?</span>
@@ -485,20 +425,20 @@
                     </div>
 
                     <!-- Navigation List View -->
-                    <div class="mainNav--list" id="navReportCenter">
+                    <div class="nav--list" id="navReportCenter">
                             
                         <!-- Toggle to close navigation list -->
-                        <div class="mainNav--listToggle">
+                        <div class="nav--listToggle">
                             <i class="fal fa-times"></i>
                         </div>
                                                 
                         <!-- Group heading and content -->
-                        <div class="mainNav--listGroup">
+                        <div class="nav--listGroup">
 
                             <!-- Category Header -->
-                            <span class="mainNav--listGroupCategoryHeading">Report Center</span>
+                            <span class="nav--listGroupCategoryHeading">Report Center</span>
                             
-                            <div class="mainNav--listGroupHeader">
+                            <div class="nav--listGroupHeader">
 
                                 <span class="groupHeading">Setup</span>
                                 <span class="groupToggle rotate-180">
@@ -507,7 +447,7 @@
             
                             </div>
 
-                            <div class="mainNav--listGroupItems items-expanded">
+                            <div class="nav--listGroupItems items-expanded">
                                 <span>Lorem, ipsum.</span>
                                 <span>Neque, provident.</span>
                                 <span>Eligendi, odio?</span>
@@ -530,20 +470,20 @@
                     </div>
                     
                     <!-- Navigation List View -->
-                    <div class="mainNav--list" id="navViewShipments">
+                    <div class="nav--list" id="navViewShipments">
                             
                         <!-- Toggle to close navigation list -->
-                        <div class="mainNav--listToggle">
+                        <div class="nav--listToggle">
                             <i class="fal fa-times"></i>
                         </div>
                                                 
                         <!-- Group heading and content -->
-                        <div class="mainNav--listGroup">
+                        <div class="nav--listGroup">
 
                             <!-- Category Header -->
-                            <span class="mainNav--listGroupCategoryHeading">View Shipments</span>
+                            <span class="nav--listGroupCategoryHeading">View Shipments</span>
                             
-                            <div class="mainNav--listGroupHeader">
+                            <div class="nav--listGroupHeader">
 
                                 <span class="groupHeading">Setup</span>
                                 <span class="groupToggle rotate-180">
@@ -552,7 +492,7 @@
             
                             </div>
 
-                            <div class="mainNav--listGroupItems items-expanded">
+                            <div class="nav--listGroupItems items-expanded">
                                 <span>Lorem, ipsum.</span>
                                 <span>Neque, provident.</span>
                                 <span>Eligendi, odio?</span>
@@ -576,20 +516,20 @@
 
 
                     <!-- Navigation List View -->
-                    <div class="mainNav--list" id="navInvoices">
+                    <div class="nav--list" id="navInvoices">
                             
                         <!-- Toggle to close navigation list -->
-                        <div class="mainNav--listToggle">
+                        <div class="nav--listToggle">
                             <i class="fal fa-times"></i>
                         </div>
                                                 
                         <!-- Group heading and content -->
-                        <div class="mainNav--listGroup">
+                        <div class="nav--listGroup">
 
                             <!-- Category Header -->
-                            <span class="mainNav--listGroupCategoryHeading">Invoices</span>
+                            <span class="nav--listGroupCategoryHeading">Invoices</span>
                             
-                            <div class="mainNav--listGroupHeader">
+                            <div class="nav--listGroupHeader">
 
                                 <span class="groupHeading">Setup</span>
                                 <span class="groupToggle rotate-180">
@@ -598,7 +538,7 @@
             
                             </div>
 
-                            <div class="mainNav--listGroupItems items-expanded">
+                            <div class="nav--listGroupItems items-expanded">
                                 <span>Lorem, ipsum.</span>
                                 <span>Neque, provident.</span>
                                 <span>Eligendi, odio?</span>
@@ -621,20 +561,20 @@
                     </div>
 
                     <!-- Navigation List View -->
-                    <div class="mainNav--list" id="navCoding">
+                    <div class="nav--list" id="navCoding">
                             
                         <!-- Toggle to close navigation list -->
-                        <div class="mainNav--listToggle">
+                        <div class="nav--listToggle">
                             <i class="fal fa-times"></i>
                         </div>
                                                 
                         <!-- Group heading and content -->
-                        <div class="mainNav--listGroup">
+                        <div class="nav--listGroup">
                             
                             <!-- Category Header -->
-                            <span class="mainNav--listGroupCategoryHeading">Coding</span>
+                            <span class="nav--listGroupCategoryHeading">Coding</span>
                             
-                            <div class="mainNav--listGroupHeader">
+                            <div class="nav--listGroupHeader">
 
                                 <span class="groupHeading">Setup</span>
                                 <span class="groupToggle rotate-180">
@@ -643,7 +583,7 @@
             
                             </div>
 
-                            <div class="mainNav--listGroupItems items-expanded">
+                            <div class="nav--listGroupItems items-expanded">
                                 <span>Lorem, ipsum.</span>
                                 <span>Neque, provident.</span>
                                 <span>Eligendi, odio?</span>
@@ -666,20 +606,20 @@
                     </div>
 
                     <!-- Navigation List View -->
-                    <div class="mainNav--list" id="navCargoClaims">
+                    <div class="nav--list" id="navCargoClaims">
                             
                         <!-- Toggle to close navigation list -->
-                        <div class="mainNav--listToggle">
+                        <div class="nav--listToggle">
                             <i class="fal fa-times"></i>
                         </div>
                                                 
                         <!-- Group heading and content -->
-                        <div class="mainNav--listGroup">
+                        <div class="nav--listGroup">
 
                             <!-- Category Header -->
-                            <span class="mainNav--listGroupCategoryHeading">Cargo Claims</span>
+                            <span class="nav--listGroupCategoryHeading">Cargo Claims</span>
                             
-                            <div class="mainNav--listGroupHeader">
+                            <div class="nav--listGroupHeader">
 
                                 <span class="groupHeading">Setup</span>
                                 <span class="groupToggle rotate-180">
@@ -688,7 +628,7 @@
             
                             </div>
 
-                            <div class="mainNav--listGroupItems items-expanded">
+                            <div class="nav--listGroupItems items-expanded">
                                 <span>Lorem, ipsum.</span>
                                 <span>Neque, provident.</span>
                                 <span>Eligendi, odio?</span>

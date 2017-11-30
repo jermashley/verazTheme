@@ -65,11 +65,11 @@ window.toggleNav = function() {
 
         $('#mainContent').toggleClass('lockScroll');
 
-        $('.nav').toggleClass('nav--expanded');
+        $('.mainNav').toggleClass('nav--expanded');
 
-        $('.nav--list').removeClass('list--expanded');
+        $('.mainNav--list').removeClass('list--expanded');
 
-        $('.nav--button').removeClass('activeMenu');
+        $('.mainNav--button').removeClass('activeMenu');
 
     });
 
@@ -82,7 +82,7 @@ window.toggleNavList = function() {
         console.log('The navigation list is ready to toggle.');
     });
 
-    $('.nav--button').click(function() {
+    $('.mainNav--button').click(function() {
 
         // Get data-link value from button and store for Id.
         var menuId = $(this).data('link');
@@ -90,11 +90,11 @@ window.toggleNavList = function() {
         console.log('You clicked on #' + menuId);
 
         // Close currently open fly-out navigation page and remove active nav button style.
-        $('.nav').find('.list--expanded').removeClass('list--expanded');
-        $('.nav--button').removeClass('activeMenu');
+        $('.mainNav').find('.list--expanded').removeClass('list--expanded');
+        $('.mainNav--button').removeClass('activeMenu');
 
         // Add active nav button style.
-        $('.nav--button[data-link="' + menuId + '"]').addClass('activeMenu');
+        $('.mainNav--button[data-link="' + menuId + '"]').addClass('activeMenu');
 
         // Toggle fly-out menu associated with data-link Id stored.
         $('#' + menuId).toggleClass('list--expanded');
@@ -110,16 +110,16 @@ window.toggleNavList = function() {
 
             $('#' + menuId).removeClass('list--expanded');
 
-            $('.nav--button[data-link="' + menuId + '"]').removeClass('activeMenu');
+            $('.mainNav--button[data-link="' + menuId + '"]').removeClass('activeMenu');
 
         });
 
         // Close the fly-out menu from the X toggle.
-        $('#' + menuId).find('.nav--listToggle').click(function() {
+        $('#' + menuId).find('.mainNav--listToggle').click(function() {
 
             $('#' + menuId).removeClass('list--expanded');
 
-            $('.nav--button[data-link="' + menuId + '"]').removeClass('activeMenu');
+            $('.mainNav--button[data-link="' + menuId + '"]').removeClass('activeMenu');
         });
         
     });
@@ -139,7 +139,7 @@ window.toggleNavGroup = function() {
         $(this).toggleClass('rotate-180');
 
         // Toggle the link group inside the fly-out menu.
-        $(this).closest('.nav--listGroup').find('.nav--listGroupItems').toggleClass('items-expanded', 250);
+        $(this).closest('.mainNav--listGroup').find('.mainNav--listGroupItems').toggleClass('items-expanded', 250);
 
     });
 
@@ -193,6 +193,71 @@ window.toggleLayoutTheme = function() {
 
 }
 
+// Create Modal Dimmer
+window.createModalDimmer = function() {
+
+    $(document).ready(function() {
+        console.log('Modal dimmer is ready to be created.')
+    });
+
+    $('#app').append('<div class="modalDimmer"></div>');
+
+}
+
+// Delete previously created Modal Dimmer
+window.deleteModalDimmer = function () {
+
+    $(document).ready(function() {
+        console.log('Modal dimmer is ready to be deleted.')
+    });
+
+    $('.modalDimmer').fadeOut(750).remove();
+
+}
+
+// Toggle Company Switcher Modal
+window.companySwitcher = function () {
+
+    $(document).ready(function() {
+        console.log('Company Switcher is ready to be toggled.')
+    });
+
+    $('.company--switch').click(function() {
+        
+        $('.company--modal').toggleClass('showModal');
+
+        createModalDimmer();
+
+        // $(document).keyup(function(e) {
+            
+        //     if(e.keyCode === 27)
+
+        //     $('.company--modal').fadeOut(350);
+
+        //     deleteModalDimmer();
+
+        // });
+
+    });
+
+    $('.company--modalClose').click(function() {
+
+        $('.company--modal').removeClass('showModal');
+
+        deleteModalDimmer();
+
+    });
+
+    $('body').on('click', '.modalDimmer', function() {
+
+        $('.company--modal').removeClass('showModal');
+
+        deleteModalDimmer();
+
+    });
+
+}
+
 toggleNav();
 toggleNavList();
 toggleNavGroup();
@@ -200,3 +265,4 @@ mobileQuote();
 toggleLayoutTheme();
 toggleUserActions();
 toggleSearch();
+companySwitcher();
